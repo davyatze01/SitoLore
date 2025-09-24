@@ -1,0 +1,213 @@
+
+:global(html) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:global(body) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:global(*), :global(*::before), :global(*::after) {
+  box-sizing: inherit;
+}
+
+
+/* layout principale: prende tutta l'altezza visibile (dvh) ma non forza overflow */
+.container {
+  min-height: 100dvh; /* usa dynamic viewport height */
+  display: flex;
+  flex-direction: column; /* navbar in cima, content al centro */
+}
+
+.containerFirst{
+  width: 60%;
+}
+
+/* il main-page occupa lo spazio rimanente e centra i contenuti */
+.mainPage {
+  flex: 1; /* riempie lo spazio rimasto dopo la navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem; /* evita che testi tocchino i bordi su schermi piccoli */
+  gap: 1rem;
+  text-align: center;
+  width: 60%;
+}
+
+.containerMain {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* fa sì che i figli prendano l’altezza del contenitore */
+  height: 100%; /* o 100dvh se vuoi l’altezza viewport */
+}
+
+.imageDiv {
+  flex: 0 0 40%; /* prende il 40% della larghezza */
+  /* rimuovi height:100% */
+}
+
+.imageDiv {
+  width: 40%;
+  max-height: 100dvh; /* non supera l’altezza della viewport */
+}
+
+.imageDiv img {
+  width: 60%;
+  height: auto; /* mantiene proporzioni */
+}
+
+/* titolo grande, responsive con clamp - non usare height:100% qui */
+.megaTitle {
+  margin: 0;
+  font-size: clamp(2rem, 10vw, 7rem);
+  line-height: 1.2;
+  width: min(95%, 1200px);
+  letter-spacing: 0.02em;
+
+  /* Gradiente sul testo */
+  background: linear-gradient(to right, #602198, #d591ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  height: max-content;
+}
+
+/* sottotitolo sotto il titolo */
+.subtitle {
+  margin: 0;
+  font-size: clamp(1rem, 3.5vw, 1.8rem);
+  opacity: 0.9;
+  letter-spacing: 0.12em;
+  font-size: 40px;
+  color: grey;
+  height: max-content;
+}
+
+/* non forziamo overflow:hidden perché nasconde contenuti utili;
+   permetti lo scroll verticale se il contenuto lo richiede */
+:global(body) {
+  overflow-y: auto;
+}
+
+.btnContainer{
+  padding-top: 20px;
+}
+
+.btnContainer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  display: inline-block;
+  border-radius: 40px;
+  background: #6a0dad; /* viola base */
+  padding: 12px 60px;
+  height: max-content;
+  margin-top: 30px;
+
+  /* Glow esterno */
+  box-shadow: 
+    0 0 20px rgba(138, 43, 226, 0.8),
+    /* Rilievo bordo */
+    inset -1px -1px 4px rgba(255,255,255,0.4), /* highlight alto-sinistra */
+    inset  1px  1px 4px rgba(0,0,0,0.4);  
+}
+
+.chiSonoContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 160px;
+}
+
+.containerChiSonoLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centro verticale del contenuto interno */
+  height: 100%; /* deve avere altezza del container */
+}
+
+.containerChiSonoRight{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.chiSono{
+  
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  width: 100%;
+  color: white;
+  font-size: 35px;
+  height: max-content;
+}
+
+.chiSonoDescription{
+  font-size: 16px;
+  margin-top: 40px;
+  line-height: 1.5;
+  width: 70ch;
+  margin-bottom: 1em;
+  height: max-content;
+}
+
+.btnChiSono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: max-content;
+  background-color: white;
+  border-radius: 30px; /* più grande per arrotondare meglio */
+  overflow: hidden; /* taglia bene i bordi */
+  font-size: 18px;
+  text-decoration: none;
+  margin-left: 100px;
+  margin-top: 30px;
+}
+
+.btnChiSono .btnDiv1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* spazio tra icona e testo */
+  padding: 12px 12px;
+  background-color: white;
+  color: black;
+}
+
+.btnChiSono .btnDiv1 span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconWhatsapp {
+  font-size: 20px;
+  color: black; /* o verde se vuoi */
+}
+
+.btnChiSono .btnDiv2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #602198;
+  color: white;
+  padding: 8px 12px;
+  padding-left: 40px;
+  font-size: 30px;
+  clip-path: circle(63.1% at 71% 53%);
+
+}
+
+.btnContainer2{
+  display: flex;
+  height: max-content;
+}

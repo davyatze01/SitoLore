@@ -1,0 +1,85 @@
+:global(html) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:global(body) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:global(*), :global(*::before), :global(*::after) {
+  box-sizing: inherit;
+}
+
+
+/* layout principale: prende tutta l'altezza visibile (dvh) ma non forza overflow */
+.container {
+  min-height: 100dvh; /* usa dynamic viewport height */
+  display: flex;
+  flex-direction: column; /* navbar in cima, content al centro */
+  padding-top: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.floatingContainer{
+    width: 85%;
+    height: 75%;
+    background-color: white;
+    border-radius: 60px;
+    border: 5px solid #2c323e;
+    padding: 70px 70px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.subtitleFirst{
+    height: max-content;
+}
+
+.title {
+    height: max-content;
+    font-size: 50px;
+    background: linear-gradient(to right, #d591ff, #602198);
+    -webkit-background-clip: text; /* per Chrome/Safari */
+    background-clip: text;         /* standard */
+    -webkit-text-fill-color: transparent; /* necessario in WebKit */
+}
+
+.leftContent{
+    width: 55%;
+}
+
+.rightContent{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.description{
+    width: 93%;
+    margin-top: 25px;
+}
+
+.locationContainer, .telefonoContainer, .emailContainer{
+    height: max-content;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.buttonContainer{
+    margin-top: 30px;
+    height: max-content;
+}
+
+.iconContact{
+    margin-right: 10px;
+    font-size: 25px;
+}

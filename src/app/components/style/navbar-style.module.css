@@ -1,0 +1,31 @@
+.navbar{
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    padding: 20px 0px;
+    color: white;
+    background-color: black;
+    z-index: 100;
+}
+
+.navTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    width: 25%;
+}
+
+.menu{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu .menuItem{
+    padding: 10px 20px;
+}

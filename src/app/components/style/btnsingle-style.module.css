@@ -1,0 +1,54 @@
+.btnContainer2{
+  display: flex;
+  height: max-content;
+}
+
+.btnChiSono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: max-content;
+  background-color: white;
+  border-radius: 10px; /* più grande per arrotondare meglio */
+  overflow: hidden; /* taglia bene i bordi */
+  font-size: 16px;
+  margin-left: 10px;
+  text-decoration: none;
+  margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+
+}
+
+.btnChiSono .btnDiv1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* spazio tra icona e testo */
+  padding: 12px 12px;
+  background-color: white;
+  color: black;
+}
+
+.iconWhatsapp {
+  font-size: 20px;
+  color: black; /* o verde se vuoi */
+}
+
+.btnChiSono .btnDiv2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #602198;
+  color: white;
+  padding: 8px 12px;
+  padding-left: 40px;
+  font-size: 26px;
+  clip-path: circle(63.1% at 71% 53%);
+
+}
+
+.btnChiSono .btnDiv2 {
+  border-radius: 0 10px 10px 0; /* stessi raggi del parent */
+}
+

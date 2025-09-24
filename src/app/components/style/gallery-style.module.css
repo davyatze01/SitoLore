@@ -1,0 +1,80 @@
+:global(html) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:global(body) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:global(*), :global(*::before), :global(*::after) {
+  box-sizing: inherit;
+}
+
+
+.container{
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 120px;
+}
+
+.titleContainer{
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.title{
+    height: max-content;
+    font-size: 30px;
+    background: linear-gradient(to right, #d591ff, #602198);
+    -webkit-background-clip: text; /* per Chrome/Safari */
+    background-clip: text;         /* standard */
+    -webkit-text-fill-color: transparent; /* necessario in WebKit */
+}
+
+.subtitle{
+    font-size: 16px;
+}
+
+/*. INIZIO GALLERIA  */
+
+.scrollContainer {
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.galleryTrack {
+    display: flex;
+    gap: 20px;
+    width: calc(400px * 4 * 2 + 20px * 7); /* larghezza totale = larghezza immagine * numero immagini * 2 + gap totali */
+    animation: scroll 10s linear infinite;
+    margin-top: 40px;
+}
+
+.gImageContainer {
+  position: relative;
+  flex: 0 0 auto;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
