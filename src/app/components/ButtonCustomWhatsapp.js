@@ -15,14 +15,15 @@ const comfortaaBold = Comfortaa({subsets: ["latin"], weight: "700" });
 export default function WhatsappButton() {
   return (
         <div className={styles.btnContainer2}>
-            <a href="#" className={`${styles.btnChiSono} ${comfortaaBold.className}`}>
+            <a href="https://wa.me/393801864030?text=Ciao%20vorrei%20più%20informazioni%20per%20lo%20spettacolo" className={`${styles.btnChiSono} ${comfortaaBold.className}`}>
                 <div className={styles.btnDiv1}>
                 <IoLogoWhatsapp className={styles.iconLogo}/>
                 <span>Contattami su <br />Whatsapp</span>
                 </div>
                 <div className={styles.btnDiv2}>
-                <FaArrowCircleRight />
+                    <FaArrowCircleRight className={styles.arrowIcon} />
                 </div>
+
             </a>
         </div>
   );

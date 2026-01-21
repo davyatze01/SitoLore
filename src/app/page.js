@@ -7,6 +7,7 @@ import ChiSono from "./components/ChiSono";
 import Eventi from "./components/Eventi";
 import Contattami from "./components/Contattami";
 import Gallery from "./components/Gallery";
+import Footer from "./components/Footer";
 
 const cinzelDecorative = Cinzel_Decorative({ subsets: ["latin"], weight: "900" });
 const cinzelDecorative_light = Cinzel_Decorative({ subsets: ["latin"], weight: "400" });
@@ -32,7 +33,7 @@ export default function Home() {
           </h2>
 
           <div className={`${styles.btnContainer} ${comfortaa.className}`}>
-            <a href="#" className={styles.btnScopri}>Scopri di più</a>
+            <a href="#chi-sono" className={styles.btnScopri}>Scopri di più</a>
           </div>
         </div>
 
@@ -50,6 +51,8 @@ export default function Home() {
     <Contattami />
 
     <Gallery />
+
+    <Footer />
 
     </>
   );

@@ -17,10 +17,9 @@
 
 /* layout principale: prende tutta l'altezza visibile (dvh) ma non forza overflow */
 .container {
-  min-height: 100dvh; /* usa dynamic viewport height */
+  min-height: calc(100dvh - var(--nav-h, 80px)); /* usa dynamic viewport height */
   display: flex;
   flex-direction: column; /* navbar in cima, content al centro */
-  padding-top: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -38,6 +37,7 @@
 
 .subtitleFirst{
     height: max-content;
+    color: black;
 }
 
 .title {
@@ -54,7 +54,6 @@
 }
 
 .rightContent{
-    height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -64,6 +63,7 @@
 .description{
     width: 93%;
     margin-top: 25px;
+    color: black;
 }
 
 .locationContainer, .telefonoContainer, .emailContainer{
@@ -72,6 +72,7 @@
     align-items: center;
     font-size: 15px;
     margin-top: 30px;
+    color: black;
 }
 
 .buttonContainer{

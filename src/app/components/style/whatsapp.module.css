@@ -54,3 +54,24 @@
 .iconLogo{
     font-size: 30px;
 }
+
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease;
+}
+
+
+.btnChiSono:hover .arrowIcon {
+  animation: arrowMove 0.8s ease-in-out infinite;
+}

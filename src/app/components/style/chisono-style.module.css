@@ -1,39 +1,43 @@
-
 :global(html) {
   margin: 0;
   padding: 0;
   height: 100%;
+  box-sizing: border-box; /* FIX importante */
 }
 
 :global(body) {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-y: auto;
 }
 
 :global(*), :global(*::before), :global(*::after) {
   box-sizing: inherit;
 }
 
-
-/* layout principale: prende tutta l'altezza visibile (dvh) ma non forza overflow */
-.container {
-  min-height: 100dvh; /* usa dynamic viewport height */
-  display: flex;
-  flex-direction: column; /* navbar in cima, content al centro */
+/* FIX: evita che le sezioni vengano coperte dalla navbar sticky */
+:global(section[id]) {
+  scroll-margin-top: 78px; /* altezza navbar + margine */
 }
 
-.containerFirst{
+/* layout principale */
+.container {
+  min-height: calc(100dvh - var(--nav-h, 80px));
+  display: flex;
+  flex-direction: column;
+}
+
+.containerFirst {
   width: 60%;
 }
 
-/* il main-page occupa lo spazio rimanente e centra i contenuti */
 .mainPage {
-  flex: 1; /* riempie lo spazio rimasto dopo la navbar */
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem; /* evita che testi tocchino i bordi su schermi piccoli */
+  padding: 2rem;
   gap: 1rem;
   text-align: center;
   width: 60%;
@@ -42,26 +46,21 @@
 .containerMain {
   display: flex;
   flex-direction: row;
-  align-items: stretch; /* fa sì che i figli prendano l’altezza del contenitore */
-  height: 100%; /* o 100dvh se vuoi l’altezza viewport */
+  align-items: stretch;
+  height: 100%;
 }
 
 .imageDiv {
-  flex: 0 0 40%; /* prende il 40% della larghezza */
-  /* rimuovi height:100% */
-}
-
-.imageDiv {
+  flex: 0 0 40%;
   width: 40%;
-  max-height: 100dvh; /* non supera l’altezza della viewport */
+  max-height: 100dvh;
 }
 
 .imageDiv img {
   width: 60%;
-  height: auto; /* mantiene proporzioni */
+  height: auto;
 }
 
-/* titolo grande, responsive con clamp - non usare height:100% qui */
 .megaTitle {
   margin: 0;
   font-size: clamp(2rem, 10vw, 7rem);
@@ -69,14 +68,13 @@
   width: min(95%, 1200px);
   letter-spacing: 0.02em;
 
-  /* Gradiente sul testo */
   background: linear-gradient(to right, #602198, #d591ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   height: max-content;
 }
 
-/* sottotitolo sotto il titolo */
 .subtitle {
   margin: 0;
   font-size: clamp(1rem, 3.5vw, 1.8rem);
@@ -87,13 +85,7 @@
   height: max-content;
 }
 
-/* non forziamo overflow:hidden perché nasconde contenuti utili;
-   permetti lo scroll verticale se il contenuto lo richiede */
-:global(body) {
-  overflow-y: auto;
-}
-
-.btnContainer{
+.btnContainer {
   padding-top: 20px;
 }
 
@@ -102,44 +94,34 @@
   text-decoration: none;
   font-size: 18px;
   display: inline-block;
-  display: inline-block;
   border-radius: 40px;
-  background: #6a0dad; /* viola base */
+  background: #6a0dad;
   padding: 12px 60px;
   height: max-content;
   margin-top: 30px;
 
-  /* Glow esterno */
   box-shadow: 
     0 0 20px rgba(138, 43, 226, 0.8),
-    /* Rilievo bordo */
-    inset -1px -1px 4px rgba(255,255,255,0.4), /* highlight alto-sinistra */
-    inset  1px  1px 4px rgba(0,0,0,0.4);  
+    inset -1px -1px 4px rgba(255,255,255,0.4),
+    inset 1px 1px 4px rgba(0,0,0,0.4);  
 }
 
-.chiSonoContainer{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  margin-top: 160px;
-}
 
 .containerChiSonoLeft {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centro verticale del contenuto interno */
-  height: 100%; /* deve avere altezza del container */
+  margin-left: 15px;
+  justify-content: center;
 }
 
-.containerChiSonoRight{
+.containerChiSonoRight {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
 }
 
-.chiSono{
-  
+.chiSono {
   display: flex;
   flex-direction: column;
   margin-left: 100px;
@@ -149,7 +131,7 @@
   height: max-content;
 }
 
-.chiSonoDescription{
+.chiSonoDescription {
   font-size: 16px;
   margin-top: 40px;
   line-height: 1.5;
@@ -158,6 +140,8 @@
   height: max-content;
 }
 
+/* ===== BOTTONE WHATSAPP MIGLIORATO ===== */
+
 .btnChiSono {
   display: flex;
   align-items: center;
@@ -165,25 +149,33 @@
   width: max-content;
   height: max-content;
   background-color: white;
-  border-radius: 30px; /* più grande per arrotondare meglio */
-  overflow: hidden; /* taglia bene i bordi */
+  border-radius: 30px;
+  overflow: hidden;
   font-size: 18px;
   text-decoration: none;
   margin-left: 100px;
   margin-top: 30px;
+
+  transition: transform 0.2s ease;
+  transform-origin: center;
+  will-change: transform; /* ottimizzazione */
+}
+
+.btnChiSono:hover {
+  transform: scale(1.05);
 }
 
 .btnChiSono .btnDiv1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* spazio tra icona e testo */
+  gap: 8px;
   padding: 12px 12px;
   background-color: white;
   color: black;
 }
 
-.btnChiSono .btnDiv1 span{
+.btnChiSono .btnDiv1 span {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -191,7 +183,9 @@
 
 .iconWhatsapp {
   font-size: 20px;
-  color: black; /* o verde se vuoi */
+  color: black;
+  transition: transform 0.2s ease;
+  display: inline-block;
 }
 
 .btnChiSono .btnDiv2 {
@@ -204,10 +198,86 @@
   padding-left: 40px;
   font-size: 30px;
   clip-path: circle(63.1% at 71% 53%);
-
 }
 
-.btnContainer2{
+.btnContainer2 {
   display: flex;
   height: max-content;
 }
+
+
+.chiSonoContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  /* IMPORTANTI */
+  position: relative;
+  overflow: hidden;
+
+  /* NON usare margin-top per “staccare” dalla navbar */
+  /* margin-top: 160px; */
+  margin-top: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  /* se vuoi che riempia lo schermo meno navbar */
+  min-height: calc(100dvh - 80px);
+}
+
+.chiSonoContainer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  /* dimensione reale dell’immagine */
+  background: url("/striscia.png") no-repeat left bottom;
+
+  width: auto;
+  height: auto;
+
+  /* IMPORTANTISSIMO: fa usare la grandezza naturale del PNG */
+  background-size: auto;
+
+  /* oppure, ancora meglio, lascia decidere al browser: */
+  background-size: initial;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* porta il contenuto sopra */
+.containerChiSonoLeft,
+.containerChiSonoRight {
+  position: relative;
+  z-index: 1;
+}
+
+
+.chiSonoContainer {
+  position: relative;
+  overflow: hidden; /* così non invade Eventi */
+}
+
+/* immagine in basso a sinistra con grandezza reale */
+.bgStriscia {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 1000;
+  height: auto; /* size naturale */
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* contenuto sopra l’immagine */
+.containerChiSonoLeft,
+.containerChiSonoRight {
+  position: relative;
+  z-index: 1;
+}
+

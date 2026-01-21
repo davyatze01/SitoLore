@@ -1,26 +1,15 @@
-:global(html) {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-:global(body) {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
 :global(*), :global(*::before), :global(*::after) {
   box-sizing: inherit;
 }
 
 
 .container{
-    height: 100dvh;
+    min-height: calc(100dvh - var(--nav-h, 280px));      /* invece di height: così non “taglia” il footer */
+    height: auto;
     display: flex;
     flex-direction: column;
-    padding-top: 120px;
 }
+
 
 .titleContainer{
     display: flex;

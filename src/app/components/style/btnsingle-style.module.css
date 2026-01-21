@@ -1,54 +1,135 @@
-.btnContainer2{
+.btnContainer2 {
   display: flex;
   height: max-content;
 }
 
 .btnChiSono {
+  position: relative;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+
   width: max-content;
   height: max-content;
+
   background-color: white;
-  border-radius: 10px; /* più grande per arrotondare meglio */
-  overflow: hidden; /* taglia bene i bordi */
+  border-radius: 10px;
+  overflow: hidden;
+
   font-size: 16px;
   margin-left: 10px;
-  text-decoration: none;
   margin-top: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+
+  /* Nuove transizioni generali */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btnChiSono .btnDiv1 {
+/* Hover generale del bottone */
+/* Hover generale del bottone (niente scale) */
+
+
+.btnChiSono:hover {
+  transform: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* testo */
+.btnDiv1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* spazio tra icona e testo */
-  padding: 12px 12px;
+  gap: 8px;
+
+  padding: 12px 25px 12px 12px;
   background-color: white;
   color: black;
+
+  position: relative;
+  z-index: 1;
 }
 
-.iconWhatsapp {
-  font-size: 20px;
-  color: black; /* o verde se vuoi */
-}
+/* parte viola */
+.btnDiv2 {
+  position: relative;
+  z-index: 2;
 
-.btnChiSono .btnDiv2 {
   display: flex;
   align-items: center;
   justify-content: center;
+
   background-color: #602198;
   color: white;
-  padding: 8px 12px;
-  padding-left: 40px;
+
+  padding: 8px 22px;
+  padding-left: 10px;
+
   font-size: 26px;
-  clip-path: circle(63.1% at 71% 53%);
 
+  border-radius: 0 10px 10px 0;
+
+  overflow: visible;
+
+  transition: background-color 0.3s ease;
 }
 
-.btnChiSono .btnDiv2 {
-  border-radius: 0 10px 10px 0; /* stessi raggi del parent */
+/* Hover sulla parte viola */
+.btnChiSono:hover .btnDiv2 {
+  background-color: #602198;
 }
 
+/* SEMICERCHIO */
+.btnDiv2::before {
+  content: "";
+  position: absolute;
+
+  width: 70px;
+  height: 70px;
+
+  left: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background-color: #602198;
+
+  clip-path: circle(63.1% at 90% 53%);
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  transform: translateY(-50%) translateZ(0);
+}
+
+/* icona sopra tutto */
+.btnDiv2 > * {
+  position: relative;
+  z-index: 1;
+
+  /* transizione base */
+  transition: transform 0.3s ease;
+}
+
+/* ===== ANIMAZIONE FRECCIA ===== */
+
+/* Keyframes movimento avanti-indietro */
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Attiva animazione SOLO quando si va in hover sul bottone */
+.btnChiSono:hover .btnDiv2 > * {
+  animation: arrowMove 0.8s ease-in-out infinite;
+}

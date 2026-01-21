@@ -1,7 +1,10 @@
-.btnContainer2{
+.btnContainer2 {
   display: flex;
   height: max-content;
+  margin-left: 60px;
 }
+
+/* ===== BOTTONI CONTATTO ===== */
 
 .btnChiSono {
   display: flex;
@@ -10,29 +13,55 @@
   width: max-content;
   height: max-content;
   background-color: white;
-  border-radius: 30px; /* più grande per arrotondare meglio */
-  overflow: hidden; /* taglia bene i bordi */
+  border-radius: 30px;
+  overflow: hidden;
   font-size: 18px;
   text-decoration: none;
-  margin-left: 100px;
+  margin-left: 40px;
   margin-top: 30px;
+
+  /* NUOVE TRANSIZIONI */
+  transition: all 0.3s ease;
+  transform-origin: center;
+  will-change: transform, box-shadow;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* HOVER GENERALE DEL BOTTONE */
+.btnChiSono:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* CONTENUTO INTERNO */
 .btnChiSono .btnDiv1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* spazio tra icona e testo */
+  gap: 8px;
   padding: 12px 12px;
   background-color: white;
   color: black;
+
+  transition: background-color 0.3s ease;
 }
 
+/* ICONA */
 .iconWhatsapp {
-  font-size: 20px;
-  color: black; /* o verde se vuoi */
+  font-size: 25px;
+  color: black;
+
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
+/* HOVER ICONA */
+.btnChiSono:hover .iconWhatsapp {
+  transform: scale(1.25);
+  color: #6a0dad;
+}
+
+/* EVENTUALE SECONDA PARTE (se la usi in futuro) */
 .btnChiSono .btnDiv2 {
   display: flex;
   align-items: center;
@@ -44,5 +73,10 @@
   font-size: 30px;
   clip-path: circle(63.1% at 71% 53%);
 
+  transition: background-color 0.3s ease;
 }
 
+/* Hover parte viola */
+.btnChiSono:hover .btnDiv2 {
+  background-color: #7c1ecf;
+}

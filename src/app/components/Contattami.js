@@ -20,7 +20,7 @@ const comfortaaLight = Comfortaa({subsets: ["latin"], weight: "400" });
 const comfortaaBold = Comfortaa({subsets: ["latin"], weight: "700" });
 const poppinsBold = Poppins({ subsets: ["latin"], weight: "700" });
 const poppinsSemiBold = Poppins({ subsets: ["latin"], weight: "600" });
-const poppins = Poppins({ subsets: ["latin"], weight: "500" });
+const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
 export default function Contattami() {
   return (
@@ -54,7 +54,7 @@ export default function Contattami() {
 
               <div className={styles.rightContent}>
                   <div className={`${styles.locationContainer} ${poppins.className}`}> <FaLocationDot className={styles.iconContact}/>Sardinia, Italy</div>
-                  <div className={`${styles.telefonoContainer} ${poppins.className}`}><FaPhoneAlt className={styles.iconContact}/> +39 38018640390</div>
+                  <div className={`${styles.telefonoContainer} ${poppins.className}`}><FaPhoneAlt className={styles.iconContact}/> +39 3801864030</div>
                   <div className={`${styles.emailContainer} ${poppins.className}`}><IoMail className={styles.iconContact}/> lorenzomameli301@gmail.com</div>
                   <div className={styles.buttonContainer}><WhatsappButton /></div>
               </div>

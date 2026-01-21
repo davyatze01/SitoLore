@@ -1,123 +1,155 @@
+/* ✅ RIMOSSI i :global(html/body/*) perché non devono stare in un css module */
 
-:global(html) {
+/* Sezione Eventi */
+.container {
+  min-height: calc(100dvh );
+  display: flex;
+  flex-direction: column;
+  padding-top: 120px;
+}
+
+
+.containerEventi {
+  display: flex;
+  width: 100%;
+  height: max-content;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+}
+
+.counter .numero {
+  font-size: 40px;
+  color: white;
+}
+
+.counter .descriptionNumeroAnni {
+  color: #666666;
+  margin-left: 15px;
+}
+
+.wrapperContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  margin-top: 120px;
+}
+
+.card {
+  background-color: #843dc4;
+  width: 300px;
+  border-radius: 20px;
+}
+
+.card2 {
+  background-color: #602198;
+  width: 300px;
+  border-radius: 20px;
+  margin: 0px 4px;
+  border: 2px solid black;
+  transform: scale(1.1);
+}
+
+.card,
+.card2 {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 20px;
+}
+
+.titleCard {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.descriptionCard {
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.4;
+  margin-left: 10px;
+}
+
+.attrezzaturaCard {
+  height: max-content;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.attrezzaturaCardDescription ul {
+  line-height: 0.8;
   margin: 0;
   padding: 0;
-  height: 100%;
+  list-style-position: inside;
+  padding-left: 0;
+  font-size: 15px;
+  margin-left: 10px;
 }
 
-:global(body) {
+.attrezzaturaCardDescription ul li {
+  line-height: 1.5;
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: max-content;
 }
 
-:global(*), :global(*::before), :global(*::after) {
-  box-sizing: inherit;
+/* ------------------------------------------------------------------ */
+/* ✅ FIX BORDINI BIANCHI NEI BTN (solo dentro la sezione Eventi)       */
+/* ------------------------------------------------------------------ */
+
+/* Qualunque button/link dentro la sezione non deve avere bordi/outline di default */
+.container button,
+.container a {
+  border: none;
+  outline: none;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus outline (bianco su molti browser) */
+.container button:focus,
+.container a:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Firefox: bordo interno del focus */
+.container button::-moz-focus-inner {
+  border: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* ✅ AGGIUNTE: testo espandibile "Scopri di più"                        */
+/* ------------------------------------------------------------------ */
+
+.chiSonoText {
+  white-space: pre-line; /* mantiene gli a-capo del testo */
+}
+
+.readMoreBtn {
+  display: inline-block;
+  margin-top: 10px;      /* spazio sopra */
+  margin-left: 0;        /* niente attaccato a destra del testo */
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: underline;
+  color: #ffffff;
+  opacity: 0.85;
 }
 
 
-.container{
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    padding-top: 120px;
+.readMoreBtn:hover {
+  opacity: 1;
 }
-
-.containerEventi{
-    display: flex;
-    width: 100%;
-    height: max-content;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
-}
-
-.counter{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: max-content;
-}
-
-.counter .numero{
-    font-size: 40px;
-    color: white;
-}
-
-.counter .descriptionNumeroAnni{
-    color: #666666;
-    margin-left: 15px;
-}
-
-.wrapperContainer{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    height: max-content;
-    margin-top: 120px;
-}
-
-.card{
-    background-color: #843dc4;
-    width: 300px;
-}
-
-.card2{
-    background-color: #602198;
-    width: 300px;
-    border-radius: 20px;
-    margin: 0px 4px;
-    border: 2px solid black;
-    transform: scale(1.1);
-}
-
-.card{
-    border-radius: 20px;
-}
-
-.card, .card2{
-    display: flex;
-    flex-direction: column;
-    color: white;
-    padding: 20px;
-}
-
-.titleCard{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    font-size: 22px;
-    margin-left: 10px;
-}
-
-.descriptionCard{
-    font-size: 14px;
-    margin-top: 10px;
-    line-height: 1.4;
-    margin-left: 10px;
-}
-
-.attrezzaturaCard{
-    height: max-content;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.attrezzaturaCardDescription ul{
-    line-height: 0.8;
-    margin: 0;
-    padding: 0;
-    list-style-position: inside;
-    padding-left: 0;
-    font-size: 15px;
-    margin-left: 10px;
-}
-
-.attrezzaturaCardDescription ul li{
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    height: max-content;
-}
-

@@ -15,7 +15,7 @@ const comfortaaBold = Comfortaa({subsets: ["latin"], weight: "700" });
 export default function SingleButton() {
   return (
         <div className={styles.btnContainer2}>
-            <a href="#" className={`${styles.btnChiSono} ${comfortaaBold.className}`}>
+            <a href="#contattami" className={`${styles.btnChiSono} ${comfortaaBold.className}`}>
                 <div className={styles.btnDiv1}>
                 <span>Contattami</span>
                 </div>
