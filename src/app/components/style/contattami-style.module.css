@@ -84,3 +84,59 @@
     margin-right: 10px;
     font-size: 25px;
 }
+
+@media (max-width: 800px){
+    .floatingContainer {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        padding: 70px 20px;
+        margin: 20px 0;
+    }
+
+    .leftContent {
+        width: 100%;
+        text-align: left;
+    }
+
+    .rightContent {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 30px;
+        align-items: start;
+    }
+
+    .title {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .description {
+        width: 100%;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .locationContainer, 
+    .telefonoContainer, 
+    .emailContainer {
+        font-size: 18px;
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    .iconContact {
+        font-size: 24px;
+    }
+
+    .buttonContainer {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .subtitleFirst {
+        font-size: 14px;
+    }
+}
+

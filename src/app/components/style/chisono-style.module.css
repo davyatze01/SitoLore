@@ -106,21 +106,6 @@
     inset 1px 1px 4px rgba(0,0,0,0.4);  
 }
 
-
-.containerChiSonoLeft {
-  display: flex;
-  flex-direction: column;
-  margin-left: 15px;
-  justify-content: center;
-}
-
-.containerChiSonoRight {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-}
-
 .chiSono {
   display: flex;
   flex-direction: column;
@@ -235,7 +220,7 @@
   background: url("/striscia.png") no-repeat left bottom;
 
   width: auto;
-  height: auto;
+  
 
   /* IMPORTANTISSIMO: fa usare la grandezza naturale del PNG */
   background-size: auto;
@@ -280,4 +265,140 @@
   position: relative;
   z-index: 1;
 }
+
+
+@media (min-width: 800px){
+  .chiSonoContainer{
+    height: auto;
+  }
+
+  .containerChiSonoLeft {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    justify-content: center;
+  }
+
+  .containerChiSonoRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .hideMobile{
+    display: none;
+  }
+
+  /* container principale */
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* <-- forza altezza viewport intera */
+    padding-top: var(--nav-h, 80px); /* spazio per navbar sticky */
+    overflow-y: auto; /* scroll se necessario */
+  }
+
+  .chiSonoContainer {
+    height: 100vh; /* <-- forza altezza intera viewport */
+    flex-direction: column;
+    padding: 20px 16px;
+    overflow: visible; /* permette scroll interno se serve */
+  }
+
+  /* layout principale */
+  .containerMain {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  .mainPage {
+    width: 100%;
+    flex: 1;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 0; /* togli margine alto e usa padding container */
+  }
+
+  /* Mega title e subtitle */
+  .megaTitle {
+    font-size: clamp(2rem, 17vw, 7rem);
+    line-height: 1.2;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 7vw, 2rem);
+    line-height: 1.2;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  /* bottoni ChiSono */
+  .btnChiSono {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .containerChiSonoLeft,
+  .containerChiSonoRight {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .containerChiSonoRight {
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .chiSono {
+    font-size: 45px;
+    margin-left: 0;
+  }
+
+  .chiSonoDescription {
+    width: 100%;
+    font-size: 16px;
+    margin: 20px 0;
+    line-height: 1.4;
+  }
+
+  /* immagini decorative */
+  .bgStriscia {
+    width: 100%; 
+    height: auto;
+    bottom: 0;
+    left: 0;
+  }
+
+  /* ImageDiv per slider/video */
+  .imageDiv {
+    width: 80%;
+    max-height: none;
+    margin: 0 auto;
+  }
+
+  .imageDiv img {
+    width: 100%;
+    height: auto;
+  }
+
+  .btnContainer2 {
+    display: flex;
+    height: max-content;
+  }
+
+}
+
+
 

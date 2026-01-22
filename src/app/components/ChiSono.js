@@ -42,7 +42,7 @@ Con il mio stile unico, unisco illusioni spettacolari e comicità, creando momen
           src="/striscia.png"
           alt=""
           aria-hidden="true"
-          className={styles.bgStriscia}
+          className={`${styles.bgStriscia} ${styles.hideMobile}`}
         />
 
         <div className={styles.containerChiSonoLeft}>

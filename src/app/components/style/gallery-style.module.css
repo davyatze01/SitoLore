@@ -4,8 +4,6 @@
 
 
 .container{
-    min-height: calc(100dvh - var(--nav-h, 280px));      /* invece di height: così non “taglia” il footer */
-    height: auto;
     display: flex;
     flex-direction: column;
 }
@@ -66,4 +64,30 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+
+
+@media (min-width: 800px){
+  .container{
+    min-height: calc(100dvh - var(--nav-h, 280px));      /* invece di height: così non “taglia” il footer */
+    height: auto;
+  }
+}
+
+@media (max-width: 800px){
+  .container{
+    min-height: calc(100vh - var(--footer-h, 200px));
+    height: auto;
+    padding-bottom: var(--footer-h, 80px); /* garantisce spazio per il footer */
+    box-sizing: border-box;
+  }
+
+  .subtitle{
+    text-align: center;
+    margin-top: 10px;
+
+    margin-bottom: 60px;
+  }
+
 }

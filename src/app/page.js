@@ -29,7 +29,7 @@ export default function Home() {
           </h1>
 
           <h2 className={`${styles.subtitle} ${cinzelDecorative_light.className}`}>
-            MAGO COMICO
+            THE MAGICIAN
           </h2>
 
           <div className={`${styles.btnContainer} ${comfortaa.className}`}>

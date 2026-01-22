@@ -1,12 +1,7 @@
 /* ✅ RIMOSSI i :global(html/body/*) perché non devono stare in un css module */
 
 /* Sezione Eventi */
-.container {
-  min-height: calc(100dvh );
-  display: flex;
-  flex-direction: column;
-  padding-top: 120px;
-}
+
 
 
 .containerEventi {
@@ -15,7 +10,6 @@
   height: max-content;
   justify-content: center;
   align-items: center;
-  gap: 100px;
 }
 
 .counter {
@@ -152,4 +146,45 @@
 
 .readMoreBtn:hover {
   opacity: 1;
+}
+
+@media (min-width: 800px){
+  .container {
+    min-height: calc(100dvh );
+    display: flex;
+    flex-direction: column;
+    padding-top: 120px;
+  }
+
+  .containerEventi{
+      gap: 100px;
+  }
+}
+
+@media (max-width: 800px){
+  .container {
+    min-height: calc(200dvh );
+    display: flex;
+    flex-direction: column;
+  }
+
+  .containerEventi{
+    gap: 20px;
+  }
+
+  /* Nuovo: rendi le card una sotto l'altra */
+  .wrapperContainer {
+    flex-direction: column; /* le card vanno verticalmente */
+    align-items: center;    /* centrale orizzontalmente */
+    gap: 80px;              /* distanza tra le card */
+    margin-top: 60px;       /* riduci un po' il margine top su mobile */
+  }
+
+  .card2 {
+    transform: scale(1);    /* rimuove lo scaling della card centrale su mobile */
+    margin: 0;              /* margine uniforme tra le card */
+    background-color: #843dc4;
+  }
+
+
 }

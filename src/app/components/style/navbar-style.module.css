@@ -57,3 +57,93 @@
 .menuItem:hover::after {
   width: 40px;
 }
+
+@media (min-width: 800px) {
+  .showMobile{
+    display: none;
+  }
+}
+
+/*  MOBILE VERSION   */
+
+@media (max-width: 800px) {
+    .hideMobile{
+        display: none;
+    }
+    
+    .hamburger {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  color: white;
+}
+
+/* Menu centrato sulle voci con sfondo trasparente */
+.mobileMenu {
+  position: fixed;
+  top: 60px; /* sotto l'hamburger */
+  left: 16px;
+  background: rgba(34, 34, 34, 0.1); /* sfondo scuro trasparente */
+  border-radius: 20px;
+  padding: 20px 34px; /* padding uniforme */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s ease;
+  z-index: 1000;
+
+  /* sfondo leggermente sfocato dietro */
+  backdrop-filter: blur(6px);
+}
+
+.mobileMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* centra i link */
+}
+
+.mobileMenu li {
+  margin: 16px 0;
+}
+
+.mobileMenu a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;       /* sempre completamente opaco */
+  display: inline-block;
+  padding-bottom: 6px; /* spazio tra testo e linea */
+  position: relative;
+  opacity: 1;          /* assicurati che sia opaco */
+}
+
+/* Linea sotto ogni link larga X px */
+.mobileMenu a::after {
+  content: "";
+  display: block;
+  width: 80px; /* larghezza fissa */
+  height: 2px;
+  background: grey; /* linea completamente opaca */
+  margin: 4px auto 0; /* centra la linea sotto il link */
+  transition: background 0.2s;
+  opacity: 1;          /* linea opaca */
+}
+
+.mobileMenu a:hover::after {
+  background: #f39c12; /* colore hover */
+}
+
+/* Stato aperto */
+.open {
+  transform: scaleY(1);
+}
+
+
+
+
+
+}

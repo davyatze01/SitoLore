@@ -1,15 +1,3 @@
-.container {
-  position: relative;
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
-  background: black;
-  display: flex;
-  flex-direction: column;  /* <-- aggiunto */
-  justify-content: flex-start; /* oppure center, a seconda di cosa vuoi */
-  align-items: center;     /* centra i figli orizzontalmente */
-}
-
 /* Video principale */
 .mainVideo {
   position: absolute;
@@ -52,4 +40,37 @@
   font-size: 30px;
   color: white;
   background-color: transparent;
+}
+
+@media (min-width: 800px){
+  .container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    background: black;
+    display: flex;
+    flex-direction: column;  /* <-- aggiunto */
+    justify-content: flex-start; /* oppure center, a seconda di cosa vuoi */
+    align-items: center;     /* centra i figli orizzontalmente */
+  }
+}
+
+
+@media (max-width: 800px){
+  .container {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    background: black;
+    display: flex;
+    flex-direction: column;  /* <-- aggiunto */
+    justify-content: flex-start; /* oppure center, a seconda di cosa vuoi */
+    align-items: center;     /* centra i figli orizzontalmente */
+  }
+
+  .containerBtn{
+    bottom: 0px;
+  }
 }

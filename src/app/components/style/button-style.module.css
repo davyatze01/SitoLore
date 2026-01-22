@@ -1,31 +1,6 @@
 .btnContainer2 {
   display: flex;
   height: max-content;
-  margin-left: 60px;
-}
-
-/* ===== BOTTONI CONTATTO ===== */
-
-.btnChiSono {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: max-content;
-  height: max-content;
-  background-color: white;
-  border-radius: 30px;
-  overflow: hidden;
-  font-size: 18px;
-  text-decoration: none;
-  margin-left: 40px;
-  margin-top: 30px;
-
-  /* NUOVE TRANSIZIONI */
-  transition: all 0.3s ease;
-  transform-origin: center;
-  will-change: transform, box-shadow;
-
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* HOVER GENERALE DEL BOTTONE */
@@ -40,7 +15,6 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 12px;
   background-color: white;
   color: black;
 
@@ -49,7 +23,7 @@
 
 /* ICONA */
 .iconWhatsapp {
-  font-size: 25px;
+  font-size: 35px;
   color: black;
 
   transition: transform 0.3s ease, color 0.3s ease;
@@ -79,4 +53,72 @@
 /* Hover parte viola */
 .btnChiSono:hover .btnDiv2 {
   background-color: #7c1ecf;
+}
+
+@media (min-width: 800px){
+  .btnDiv1{
+    padding: 12px;
+  }
+
+  .btnContainer2{
+    margin-left: 60px;
+  }
+
+  /* ===== BOTTONI CONTATTO ===== */
+
+  .btnChiSono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: max-content;
+    background-color: white;
+    border-radius: 30px;
+    overflow: hidden;
+    font-size: 18px;
+    text-decoration: none;
+    margin-left: 40px;
+    margin-top: 30px;
+
+    /* NUOVE TRANSIZIONI */
+    transition: all 0.3s ease;
+    transform-origin: center;
+    will-change: transform, box-shadow;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 800px){
+
+  .btnContainer2{
+    gap: 20px;
+  }
+
+  .btnDiv1{
+    padding: 10px;
+  }
+
+  /* ===== BOTTONI CONTATTO ===== */
+
+  .btnChiSono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: max-content;
+    background-color: white;
+    border-radius: 30px;
+    overflow: hidden;
+    font-size: 18px;
+    text-decoration: none;
+
+    /* NUOVE TRANSIZIONI */
+    transition: all 0.3s ease;
+    transform-origin: center;
+    will-change: transform, box-shadow;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
 }

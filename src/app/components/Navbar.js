@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import styles from "./style/navbar-style.module.css";
 import { Cinzel_Decorative } from "next/font/google";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { FiMenu, FiX } from "react-icons/fi";
+
 
 const cinzelDecorative = Cinzel_Decorative({
   subsets: ["latin"],
@@ -11,6 +14,7 @@ const cinzelDecorative = Cinzel_Decorative({
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("main-page");
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
@@ -36,7 +40,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={styles.navbar}>
+    <>
+    <nav className={`${styles.navbar} ${styles.hideMobile}`}>
       <div className={`${styles.navTitle} ${cinzelDecorative.className}`}>
         <a href="#main-page">Lorenzo Mameli</a>
       </div>
@@ -79,5 +84,29 @@ export default function Navbar() {
         </a>
       </div>
     </nav>
+
+    {/* Hamburger */}
+    <button
+      className={`${styles.hamburger} ${styles.showMobile}`}
+      onClick={() => setOpen(!open)}
+      aria-label="Apri menu"
+    >
+      {open ? <FiX size={28} /> : <FiMenu size={28} />}
+    </button>
+
+    {/* Menu */}
+    <nav
+      className={`${styles.mobileMenu} ${styles.showMobile} ${open ? styles.open : ""}`}
+    >
+      <ul>
+        <li><a href="#main-page" onClick={() => setOpen(false)}>Home</a></li>
+        <li><a href="#chi-sono" onClick={() => setOpen(false)}>Chi Sono</a></li>
+        <li><a href="#eventi" onClick={() => setOpen(false)}>Eventi</a></li>
+        <li><a href="#contattami" onClick={() => setOpen(false)}>Contattami</a></li>
+        <li><a href="#gallery" onClick={() => setOpen(false)}>Galleria</a></li>
+      </ul>
+    </nav>
+
+    </>
   );
 }
